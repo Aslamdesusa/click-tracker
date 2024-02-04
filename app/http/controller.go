@@ -1,4 +1,3 @@
-// http/controller.go
 package http
 
 import (
