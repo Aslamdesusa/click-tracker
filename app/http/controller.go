@@ -1,3 +1,4 @@
+// app/http/controller.go
 package http
 
 import (
@@ -53,6 +54,7 @@ func TrackClick(c *gin.Context) {
 func getGeoInfo(ip string) (json.RawMessage, error) {
 	// Use the IPinfo API to get geo information based on IP
 	apiKey := os.Getenv("IP_INFO_API_KEY")
+	fmt.Printf("Apikey: %s ========", apiKey)
 	url := fmt.Sprintf("https://ipinfo.io/%s?token=%s", ip, apiKey)
 
 	resp, err := resty.New().R().Get(url)

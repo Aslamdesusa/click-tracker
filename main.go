@@ -1,8 +1,19 @@
 // app.go
 package main
 
-import "github.com/Aslamdesusa/click-tracker/app"
+import (
+	"fmt"
+
+	"github.com/Aslamdesusa/click-tracker/app/http"
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	app.Init()
+	// Load environment variables from .env file
+	if err := godotenv.Load(); err != nil {
+		fmt.Println("Error loading .env file")
+	}
+
+	// Initialize your application
+	http.Init("development")
 }
